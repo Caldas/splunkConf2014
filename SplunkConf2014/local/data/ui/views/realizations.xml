@@ -1,0 +1,88 @@
+<form stylesheet="realization_decorations.css">
+  <label>Realizations</label>
+  <fieldset submitButton="false">
+    <input type="radio" token="Type" searchWhenChanged="true">
+      <choice value="*">All</choice>
+      <populatingSearch earliest="$earliest$" latest="$latest$" fieldForLabel="Type" fieldForValue="Type">sourcetype=deed | fields Type | dedup Type | table Type | sort Type</populatingSearch>
+      <default>*</default>
+      <prefix>Type="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input type="radio" token="Done" searchWhenChanged="true">
+      <choice value="*">All</choice>
+      <populatingSearch earliest="$earliest$" latest="$latest$" fieldForLabel="Done" fieldForValue="Done">sourcetype=deed | fields Done | dedup Done | table Done | sort Done</populatingSearch>
+      <default>*</default>
+      <prefix>Done="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input type="radio" token="Planned" searchWhenChanged="true">
+      <choice value="*">All</choice>
+      <populatingSearch earliest="$earliest$" latest="$latest$" fieldForLabel="Planned" fieldForValue="Planned">sourcetype=deed | fields Planned | dedup Planned | table Planned | sort Planned asc</populatingSearch>
+      <default>*</default>
+      <prefix>Planned="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input type="multiselect" token="Satisfaction" searchWhenChanged="true">
+      <choice value="*">All</choice>
+      <valuePrefix>Satisfaction="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <delimiter> OR </delimiter>
+      <populatingSearch earliest="0" latest="" fieldForLabel="Satisfaction" fieldForValue="Satisfaction">sourcetype=deed | fields Satisfaction | dedup Satisfaction | table Satisfaction | sort Satisfaction asc</populatingSearch>
+      <default>*</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <single>
+        <title>Overall Satisfaction</title>
+        <searchString>sourcetype=deed $Type$ $Done$ $Planned$ $Satisfaction$ | stats avg(Satisfaction) as stars | eval stars=round(stars,0) | rangemap field=stars none=0-0 low=1-1 normal=2-2 good=3-3 cool=4-4 amazing=5-5 default=none</searchString>
+        <earliestTime>0</earliestTime>
+        <latestTime/>
+        <option name="drilldown">none</option>
+        <option name="classField">range</option>
+        <option name="linkView">search</option>
+      </single>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Count Done Stuff</title>
+        <searchString>sourcetype=deed $Type$ $Done$ $Planned$ $Satisfaction$ | top Done | eval Done=Done." - ".count</searchString>
+        <earliestTime>0</earliestTime>
+        <latestTime/>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.enabled">false</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">pie</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+      </chart>
+    </panel>
+    <panel>
+      <table>
+        <title>List</title>
+        <searchString>sourcetype=deed $Type$ $Done$ $Planned$ $Satisfaction$ | table What Done Planned Satisfaction | sort Satisfaction desc</searchString>
+        <earliestTime>0</earliestTime>
+        <latestTime/>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
+  </row>
+</form>

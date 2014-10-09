@@ -1,0 +1,37 @@
+.single-value:before {
+    font-family: "Splunk Icons";
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    font-size: 48px;
+}
+.amazing.single-value:before {
+	content: url(/static/app/SplunkConf2014/5_stars.png);
+    color: #ff1f24;
+}
+.cool.single-value:before {
+    content: url(/static/app/SplunkConf2014/4_stars.png);
+    color: #ff7e00;
+}
+.good.single-value:before {
+    content: url(/static/app/SplunkConf2014/3_stars.png);
+    color: #ffb800;
+}
+.normal.single-value:before {
+    content: url(/static/app/SplunkConf2014/2_stars.png);
+    color: #00b932;
+}
+.low.single-value:before {
+    content: url(/static/app/SplunkConf2014/1_stars.png);
+    color: #4da6df;
+}
+.none.single-value:before {
+    content: url(/static/app/SplunkConf2014/0_stars.png);
+    color: #4da6df;
+}
+.icon-only.single-value:before {
+    font-size: 65px;
+}
+.icon-only .single-result {
+    display: none;
+}

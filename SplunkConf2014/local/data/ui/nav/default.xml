@@ -1,0 +1,13 @@
+<nav search_view="search" color="#65A637">
+  <view name="search" default='true' />
+  <collection label="Conf Analysis">
+    <view name="expenses"/>
+    <view name="realizations" />
+  </collection>
+  <collection label="Splunk Options">
+	<view name="data_models" />
+	<view name="reports" />
+	<view name="alerts" />
+	<view name="dashboards" />
+  </collection>  
+</nav>

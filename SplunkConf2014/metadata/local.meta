@@ -1,0 +1,49 @@
+[app/ui]
+version = 6.1.4
+modtime = 1412848605.948950600
+
+[app/launcher]
+version = 6.1.4
+modtime = 1412848605.964574500
+
+[views/expenses]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 6.1.4
+modtime = 1412892140.401977700
+
+[nav/default]
+version = 6.1.4
+modtime = 1412886905.952934600
+
+[eventtypes/not_refundable]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 6.1.4
+modtime = 1412892063.276425400
+
+[eventtypes/refundable]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 6.1.4
+modtime = 1412892066.947668800
+
+[views/realizations]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 6.1.4
+modtime = 1412894344.159342400
+
+[inputs/monitor%3A%2F%2FC%3A%5CProgram%20Files%5CSplunk%5Cetc%5Capps%5CsplunkConf2014%5Clookups%5CHeroicDeeds.csv]
+owner = admin
+version = 6.1.4
+modtime = 1412888030.437884200
+
+[inputs/monitor%3A%2F%2FC%3A%5CProgram%20Files%5CSplunk%5Cetc%5Capps%5CSplunkConf2014%5Clookups%5CDeed.csv]
+owner = admin
+version = 6.1.4
+modtime = 1412890128.829582600
