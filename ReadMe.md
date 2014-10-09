@@ -52,6 +52,6 @@ All app data are obtained by 2 csv files: **spends.csv** and **deeds.csv** that 
 | Personal | Buy stuff for family | yes | yes | 5 |
 | Work | Know about Splunk 6.2 | yes | yes | 3 |
 
-##### Extra #####
+## Extra ##
 
 * Refunded Spends are detected by **eventtype** *refundable* and *not_refundable*. 
