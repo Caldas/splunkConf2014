@@ -22,8 +22,19 @@ And sure, you can have it listed to export to your HR departament or to show you
 
 ### Realizations Report ###
 
-To be explained
+![](https://raw.githubusercontent.com/Caldas/splunkConf2014/master/Docs/PrintScreens/realization_filters.png)
+On realization report you can choose what to show, by filtering realization type, if it was done or not, if it was planned or just happened and also by satisfaction
 
-#### Extra ####
+![](https://raw.githubusercontent.com/Caldas/splunkConf2014/master/Docs/PrintScreens/realization_v1.png)
+On overall overview you can see on stars rate how good was the selected realizations,
+
+![](https://raw.githubusercontent.com/Caldas/splunkConf2014/master/Docs/PrintScreens/realization_v2.png)
+and you can also check the done distribuction and the list of realizations registered.
+
+#### Data ####
+
+TBD
+
+##### Extra #####
 
 * Refunded Spends are detected by **eventtype** *refundable* and *not_refundable*. 
